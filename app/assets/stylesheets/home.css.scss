@@ -1,0 +1,52 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+circle.node {
+    stroke: #fff;
+    stroke-width: 1.5px;
+}
+
+svg { 
+    max-width: 100%;
+} 
+
+line.link {
+    stroke: #999;
+    stroke-opacity: .6;
+}
+
+#chart {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+#info {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: 1px solid #999;
+    background: #FFF;
+
+/*    display:none;
+*/    position: absolute;
+    width: 250px;
+    height: 300px;
+    top: 20px;
+    right: 20px;
+    padding: 10px;
+    
+    dt { float:left; clear: left; width:100px; }
+    dd {  }
+}
+
+#info h2 {
+    color: #367AB1;
+    width: auto;
+    text-align: center;    
+}
+
+
+
+.nodetext { pointer-events: none; font: 10px sans-serif; }

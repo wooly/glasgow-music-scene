@@ -1,0 +1,30 @@
+<%= link_to 'New Band', new_band_path %>
+
+<h1>Listing bands</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Formed</th>
+    <th>Twitter</th>
+    <th>Facebook</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bands.each do |band| %>
+  <tr>
+    <td><%= band.name %></td>
+    <td><%= band.formed %></td>
+    <td><%= band.twitter %></td>
+    <td><%= band.facebook %></td>
+    <td><%= link_to 'Show', band %></td>
+    <td><%= link_to 'Edit', edit_band_path(band) %></td>
+    <td><%= link_to 'Destroy', band, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

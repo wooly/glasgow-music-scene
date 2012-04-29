@@ -1,0 +1,113 @@
+<div id="chart"></div>
+<div id="info">
+  <h2 id="title">Test</h2>
+  <dl>
+  <dt>Facebook</dt>
+  <dd id="fb">unknown</dd>
+  <dt>Twitter</dt>
+  <dd id="twitter">unknown</dd>
+  </dl>
+</div>
+<script>
+$(document).ready(function() {
+  var width = $(window).width(),
+      height = $(window).height(),
+      nodes = <%= Band.find(:all, :order => "id").to_json.to_s.html_safe %>,
+      links = <%= Link.all.to_json.html_safe %>;
+  
+  function find(value){
+      var item = $.grep(nodes, function(item) {
+        return item.id == value;
+      });
+      return nodes.indexOf(item[0]);
+  };
+  
+  function showInfo(d, i) {
+    console.log(d, i);
+    connections = [];
+    $.map(links, function(o, i) {
+      if (d == o.source || d == o.target) connections.push(o);
+    });
+    console.log(connections);
+    $('#title').text(d.name);
+    (d.twitter === "") ? $('#twitter').text("unknown") : $('#twitter').text(d.twitter);
+    (d.facebook === "") ? $('#fb').text("unknown") : $('#fb').text(d.facebook);
+    $('#info').show();
+  };
+
+  var color = d3.scale.category20();
+
+  var force = d3.layout.force()
+  .charge(-300)
+  .linkDistance(20)
+  .size([width, height]);
+
+  $.each(links, function(index, value) {
+    var source_index = find(value.source_id),
+        dest_index= find(value.dest_id);
+
+    value.source = source_index;
+    value.target = dest_index;
+  });
+
+  force
+    .nodes(nodes)
+    .links(links)
+    .start();
+    
+  var svg = d3.select("#chart")
+    .append("svg")
+    .attr("pointer-events", "all")
+    .attr("viewBox", "0 0 0 0") 
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .call(d3.behavior.zoom().on("zoom", redraw))
+    .append('svg:g');
+
+  $('#chart').css('position', 'absolute');
+
+  svg.append('svg:rect')
+      .attr('width', width)
+      .attr('height', height)
+      .attr('fill', 'white');
+
+  function redraw() {
+    svg.attr("transform",
+        "translate(" + d3.event.translate + ")"
+        + " scale(" + d3.event.scale + ")");
+  }
+
+    var link = svg.selectAll("line.link")
+      .data(links)
+      .enter().append("line")
+      .attr("class", "link")
+      .style("stroke-width", function(d) { return 2; });
+
+    var node = svg.selectAll("g.node")
+      .data(nodes)
+      .enter().append("svg:g")
+      .attr("class", "node")
+      .call(force.drag);
+  
+    node.append("circle")
+        .attr("class", "circle")
+        .attr("r", 5)
+        .style("fill", function(d) { return color(d.group); })
+        .on('click', showInfo);
+  
+
+    node.append("svg:text")
+        .attr("class", "nodetext")
+        .attr("dx", 12)
+        .attr("dy", ".35em")
+        .text(function(d) { return d.name });
+
+    force.on("tick", function() {
+      link.attr("x1", function(d) { return d.source.x; })
+      .attr("y1", function(d) { return d.source.y; })
+      .attr("x2", function(d) { return d.target.x; })
+      .attr("y2", function(d) { return d.target.y; });
+
+      node.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
+    });
+});
+</script>

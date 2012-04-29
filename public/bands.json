@@ -1,0 +1,118 @@
+{
+  "nodes" : [
+    {
+      "name":"Belle and Sebastian",
+      "twitter": "@bellesglasgow",
+      "group":1,
+      "members": [
+        "Stuart Murdoch",
+        "Stevie Jackson"
+      ]
+    },
+    {"name":"Arab Strap","group":1},
+    {"name":"Camera Obscura", "twitter": "@camera_obscura_", "group":1},
+    {
+      "name":"Amy McDonald",
+      "group":1
+    },
+    {
+      "name":"Travis",
+      "group":1
+    },
+    {
+      "name":"Gun",
+      "group":1
+    },
+    {
+      "name":"El Presidente",
+      "group":1
+    },
+    {
+      "name":"Texas",
+      "group":1,
+      "members": [
+        "Sharleen Spiteri"
+      ]
+    },
+    {
+      "name":"Deacon Blue",
+      "group":1
+    },
+    {
+      "name":"Franz Ferdinand",
+      "group":1
+    },
+    {
+      "name":"The Karelia",
+      "group":1
+    },
+    {
+      "name":"The Yummy Fur",
+      "group":1
+    },
+    {
+      "name":"1990s",
+      "group":1
+    },
+    {
+      "name":"Correcto",
+      "group":1
+    },
+    {
+      "name":"Box Codax",
+      "group":1
+    },
+    {
+      "name":"Teenage Fanclub",
+      "group":1
+    },
+    {
+      "name":"Mogwai",
+      "group":1
+    },
+    {
+      "name":"The Soup Dragons",
+      "group":1
+    },
+    {
+      "name":"BMX Bandits",
+      "group":1
+    },
+    {
+      "name":"Eurgenius",
+      "group":1
+    },
+    {
+      "name":"Vaselines",
+      "group":1
+    },
+    {
+      "name":"Primary 5",
+      "group":1
+    }
+  ],
+  "links": [
+    {"source":0,"target":1,"value":1,"desc": "Belle and Sebastian wrote a song about Arab Strap"},
+    {"source":0,"target":2,"value":1, "desc": "Camera Obscura's first album was produced by Stuart Murdoch"},
+    {"source":5,"target":6,"value":1, "desc": "Gun member Dante Gizzi went on to join El Presidente"},
+    {"source":6,"target":7,"value":1, "desc": "El Presidente worked with Johnny McElhone"},
+    {"source":5,"target":7,"value":1, "desc": "Texas band member went on to join Gun"},
+    {"source":6,"target":8,"value":1, "desc": "El Presidente band member Dante Gizzi collaborated with Deacon Blue"},
+    {"source":9,"target":10,"value":1, "desc": "Franz frontman, Alex Kapranos, formed The Karelia"},
+    {"source":9,"target":11,"value":1, "desc": "Alex Kapranos and Paul Thompson used to play in The Yummy Fur"},
+    {"source":9,"target":12,"value":1, "desc": "Alex Kapranos and Paul Thompson used to play in 1990s"},
+    {"source":11,"target":12,"value":1, "desc": "The Yummy Fur guitarist, John McKeown, went on to form 1990s"},
+    {"source":9,"target":13,"value":1, "desc": "Paul Thompson formed Correcto in 2006"},
+    {"source":9,"target":14,"value":1, "desc": "Nick McCarthy formed Box Codax in 2003"},
+    {"source":15,"target":16,"value":1, "desc": "Brendan o'Hare is a member of both Teenage Fanclub and Mogwai"},
+    {"source":16,"target":1,"value":1, "desc": "Aidan Moffat has played with Mogwai"},
+    {"source":17,"target":15,"value":1, "desc": "The Soup Dragons member Paul Quinn joined Teenage Fanclub"},
+    {"source":17,"target":18,"value":1, "desc": "Members in common"},
+    {"source":15,"target":18,"value":1, "desc": "Members in common"},
+    {"source":19,"target":20,"value":1, "desc": "Eugenius formed by Vaselines singer Eugene Kelly"},
+    {"source":18,"target":20,"value":1, "desc": "Members in common"},
+    {"source":15,"target":20,"value":1, "desc": "Members in common"},
+    {"source":15,"target":21,"value":1, "desc": "Members in common"},
+    {"source":17,"target":21,"value":1, "desc": "Members in common"}
+  ]
+}

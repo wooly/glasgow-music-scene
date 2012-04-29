@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  formed: 2012-04-15
+  twitter: MyString
+  facebook: MyString
+
+two:
+  name: MyString
+  formed: 2012-04-15
+  twitter: MyString
+  facebook: MyString
