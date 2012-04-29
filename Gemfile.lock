@@ -1,3 +1,15 @@
+GIT
+  remote: git://github.com/rails/sass-rails.git
+  revision: a11b1b0ea9bbc0f511fec9c952862bf0d543e790
+  tag: 3.1.4
+  specs:
+    sass-rails (3.1.4)
+      actionpack (~> 3.1.0)
+      railties (~> 3.1.0)
+      sass (>= 3.1.4)
+      sprockets (~> 2.0.0)
+      tilt (~> 1.3.2)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -120,12 +132,7 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     remotipart (1.0.2)
-    sass (3.1.15)
-    sass-rails (3.1.6)
-      actionpack (~> 3.1.0)
-      railties (~> 3.1.0)
-      sass (>= 3.1.10)
-      tilt (~> 1.3.2)
+    sass (3.1.16)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -158,7 +165,7 @@ DEPENDENCIES
   pg
   rails (= 3.1.3)
   rails_admin
-  sass-rails (~> 3.1.5)
+  sass-rails!
   thin
   turn (= 0.8.2)
   uglifier (>= 1.0.3)
