@@ -37,8 +37,7 @@ line.link {
     right: 20px;
     padding: 10px;
     
-    dt { float:left; clear: left; width:100px; }
-    dd {  }
+    dt { float:left; clear: left; width:100px; font-weight: bold;}
 }
 
 #info h2 {
@@ -47,6 +46,11 @@ line.link {
     text-align: center;    
 }
 
-
+.twitter-share-button {
+    position: absolute;
+    z-index: 9999;
+    bottom: 20px;
+    left: 20px;
+}
 
 .nodetext { pointer-events: none; font: 10px sans-serif; }
