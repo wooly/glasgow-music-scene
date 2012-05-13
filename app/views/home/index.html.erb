@@ -30,7 +30,7 @@ $(document).ready(function() {
     });
     console.log(connections);
     $('#title').text(d.name);
-    (d.twitter === "") ? $('#twitter').text("unknown") : $('#twitter').text(d.twitter);
+    (d.twitter === "" || d.twitter == undefined) ? $('#twitter').text("unknown") : $('#twitter').text(d.twitter);
     (d.facebook === "") ? $('#fb').text("unknown") : $('#fb').text(d.facebook);
     $('#info').show();
   };
