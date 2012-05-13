@@ -14,6 +14,10 @@ $(document).ready(function() {
       height = $(window).height(),
       nodes = <%= Band.find(:all, :order => "id").to_json.to_s.html_safe %>,
       links = <%= Link.all.to_json.html_safe %>;
+      
+  $('#chart').live('click', function(event) {
+    $('#info').hide();
+  });
   
   function find(value){
       var item = $.grep(nodes, function(item) {
@@ -23,6 +27,7 @@ $(document).ready(function() {
   };
   
   function showInfo(d, i) {
+    d3.event.stopPropagation();
     console.log(d, i);
     connections = [];
     $.map(links, function(o, i) {
