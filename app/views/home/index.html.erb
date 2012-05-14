@@ -2,8 +2,10 @@
 <div id="info">
   <h2 id="title">Test</h2>
   <dl>
-  <dt>Twitter</dt>
-  <dd id="twitter">unknown</dd>
+    <dt>Twitter</dt>
+    <dd id="twitter">unknown</dd>
+    <dt>Members</dt>
+    <dd id="members">One<br />Two<br />Three</dd>
   </dl>
 </div>
 <script>
@@ -31,12 +33,17 @@ $(document).ready(function() {
     $elem.attr("class", "circle selected");
     $elem.attr("style", "fill: #FFF");
     d3.event.stopPropagation();
+
+    $('#members').html(d.members.join("<br />"));
+
     connections = [];
     $.map(links, function(o, i) {
       if (d == o.source || d == o.target) connections.push(o);
     });
     $('#title').text(d.name);
-    (d.twitter === "" || d.twitter == undefined) ? $('#twitter').text("unknown") : $('#twitter').text(d.twitter);
+    
+    $twitterAnchor = $("<a href=http://twitter.com/#!/" + d.twitter.slice(1) + ">" + d.twitter + "</a>");
+    (d.twitter === "" || d.twitter == undefined) ? $('#twitter').text("unknown") : $('#twitter').html($twitterAnchor);
     $('#info').show();
   };
   
