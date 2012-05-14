@@ -2,8 +2,6 @@
 <div id="info">
   <h2 id="title">Test</h2>
   <dl>
-  <dt>Facebook</dt>
-  <dd id="fb">unknown</dd>
   <dt>Twitter</dt>
   <dd id="twitter">unknown</dd>
   </dl>
@@ -17,6 +15,7 @@ $(document).ready(function() {
       
   $('#chart').live('click', function(event) {
     $('#info').hide();
+    clearSelections();
   });
   
   function find(value){
@@ -27,18 +26,25 @@ $(document).ready(function() {
   };
   
   function showInfo(d, i) {
+    clearSelections();
+    var $elem = $(d3.event.target);
+    $elem.attr("class", "circle selected");
+    $elem.attr("style", "fill: #FFF");
     d3.event.stopPropagation();
-    console.log(d, i);
     connections = [];
     $.map(links, function(o, i) {
       if (d == o.source || d == o.target) connections.push(o);
     });
-    console.log(connections);
     $('#title').text(d.name);
     (d.twitter === "" || d.twitter == undefined) ? $('#twitter').text("unknown") : $('#twitter').text(d.twitter);
-    (d.facebook === "") ? $('#fb').text("unknown") : $('#fb').text(d.facebook);
     $('#info').show();
   };
+  
+  function clearSelections() {
+    var $selection = $('.selected');
+    $selection.attr("style", "fill: #1F77B4");
+    $selection.removeClass("selected");
+  }
 
   var color = d3.scale.category20();
 
@@ -95,7 +101,9 @@ $(document).ready(function() {
   
     node.append("circle")
         .attr("class", "circle")
-        .attr("r", 5)
+        .attr("r", 4)
+        .attr("stroke-width", 1)
+        .attr("stroke", "steelblue")
         .style("fill", function(d) { return color(d.group); })
         .on('click', showInfo);
   
