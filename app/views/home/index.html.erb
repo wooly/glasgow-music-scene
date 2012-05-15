@@ -34,7 +34,11 @@ $(document).ready(function() {
     $elem.attr("style", "fill: #FFF");
     d3.event.stopPropagation();
 
-    $('#members').html(d.members.join("<br />"));
+    if (d.members == undefined) {
+      $('#members').text("unknown");
+    } else {
+      $('#members').html(d.members.join("<br />"));
+    }
 
     connections = [];
     $.map(links, function(o, i) {
@@ -42,8 +46,12 @@ $(document).ready(function() {
     });
     $('#title').text(d.name);
     
-    $twitterAnchor = $("<a href=http://twitter.com/#!/" + d.twitter.slice(1) + ">" + d.twitter + "</a>");
-    (d.twitter === "" || d.twitter == undefined) ? $('#twitter').text("unknown") : $('#twitter').html($twitterAnchor);
+    if (d.twitter === "" || d.twitter == undefined) {
+      $('#twitter').text("unknown");
+    } else {
+       $twitterAnchor = $("<a href=http://twitter.com/#!/" + d.twitter.slice(1) + ">" + d.twitter + "</a>");
+       $('#twitter').html($twitterAnchor);
+    }
     $('#info').show();
   };
   
